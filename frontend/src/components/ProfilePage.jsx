@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { orderImages } from '../assets/images'
 
 const ProfilePage = () => {
     return (
@@ -6,12 +7,12 @@ const ProfilePage = () => {
             {/* Profile Header */}
             <div className="px-4 py-8">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex items-center justify-between text-white mb-8">
-                        <div>
-                            <h1 className="text-4xl font-bold mb-2">Mahi Singh</h1>
-                            <p className="text-blue-100 text-lg">8085533790</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-white mb-8">
+                        <div className="mb-4 sm:mb-0">
+                            <h1 className="text-3xl sm:text-4xl font-bold mb-2">Mahi Singh</h1>
+                            <p className="text-blue-100 text-base sm:text-lg">8085533790</p>
                         </div>
-                        <button className="border border-white text-white px-6 py-2 rounded hover:bg-white hover:text-blue-600 transition-colors">
+                        <button className="border border-white text-white px-4 sm:px-6 py-2 rounded hover:bg-white hover:text-blue-600 transition-colors text-sm sm:text-base">
                             EDIT PROFILE
                         </button>
                     </div>
@@ -22,9 +23,9 @@ const ProfilePage = () => {
             <div className="px-4 pb-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div className="flex">
+                        <div className="flex flex-col lg:flex-row">
                             {/* Sidebar */}
-                            <div className="w-80 bg-gray-50 p-6">
+                            <div className="w-full lg:w-80 bg-gray-50 p-4 sm:p-6">
                                 <div className="space-y-2">
                                     <Link to="/orders" className="flex items-center space-x-4 p-3 rounded-lg bg-gray-200 text-gray-800">
                                         <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
@@ -81,16 +82,16 @@ const ProfilePage = () => {
                             </div>
 
                             {/* Main Content Area */}
-                            <div className="flex-1 p-6">
-                                <h2 className="text-2xl font-bold text-gray-800 mb-6">Past Orders</h2>
+                            <div className="flex-1 p-4 sm:p-6">
+                                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6">Past Orders</h2>
 
                                 {/* Sample Order */}
-                                <div className="bg-white border border-gray-200 rounded-lg p-6 mb-4">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="flex items-center space-x-4">
-                                            <div className="relative">
+                                <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 mb-4">
+                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                                        <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+                                            <div className="relative flex-shrink-0">
                                                 <img
-                                                    src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/4a509cf1-ea35-497b-9813-59145c5007c9_750225.JPG"
+                                                    src={orderImages.firangiBake}
                                                     alt="Bhole Ke Chole"
                                                     className="w-16 h-16 rounded-lg object-cover"
                                                 />
@@ -99,31 +100,31 @@ const ProfilePage = () => {
                                                     VEG
                                                 </div>
                                             </div>
-                                            <div>
-                                                <h3 className="font-bold text-lg text-gray-800">Bhole Ke Chole</h3>
-                                                <p className="text-gray-600 text-sm">JSS Boys Hostel, Near Petrol Pump, Srinivaspura</p>
+                                            <div className="min-w-0 flex-1">
+                                                <h3 className="font-bold text-lg text-gray-800 truncate">Bhole Ke Chole</h3>
+                                                <p className="text-gray-600 text-sm truncate">JSS Boys Hostel, Near Petrol Pump, Srinivaspura</p>
                                                 <p className="text-gray-500 text-xs">ORDER #223455469950021 | Sun, Nov 30, 2025, 12:27 PM</p>
                                                 <button className="text-orange-500 text-sm font-medium mt-1">VIEW DETAILS</button>
                                             </div>
                                         </div>
-                                        <div className="text-right">
+                                        <div className="text-left sm:text-right">
                                             <div className="flex items-center text-green-600 text-sm font-medium mb-1">
                                                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                                Delivered on Sun, Nov 30, 2025, 12:54 PM
+                                                <span className="text-xs sm:text-sm">Delivered on Sun, Nov 30, 2025, 12:54 PM</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="border-t pt-4">
-                                        <div className="flex justify-between items-center mb-4">
-                                            <p className="text-gray-800">Chole Bhature x 4</p>
+                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                            <p className="text-gray-800 mb-2 sm:mb-0">Chole Bhature x 4</p>
                                             <p className="font-bold text-gray-800">Total Paid: ₹ 377</p>
                                         </div>
-                                        <div className="flex space-x-3">
-                                            <button className="bg-orange-500 text-white px-6 py-2 rounded font-medium hover:bg-orange-600">
+                                        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                                            <button className="bg-orange-500 text-white px-6 py-2 rounded font-medium hover:bg-orange-600 transition-colors">
                                                 REORDER
                                             </button>
-                                            <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded font-medium hover:bg-orange-50">
+                                            <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded font-medium hover:bg-orange-50 transition-colors">
                                                 HELP
                                             </button>
                                         </div>
@@ -131,12 +132,12 @@ const ProfilePage = () => {
                                 </div>
 
                                 {/* Second Order */}
-                                <div className="bg-white border border-gray-200 rounded-lg p-6">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="flex items-center space-x-4">
-                                            <div className="relative">
+                                <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                                        <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+                                            <div className="relative flex-shrink-0">
                                                 <img
-                                                    src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/e0839ff574213e6f35b3899ebf1fc597"
+                                                    src={orderImages.chineseWok}
                                                     alt="PK Biryani House"
                                                     className="w-16 h-16 rounded-lg object-cover"
                                                 />
@@ -145,31 +146,31 @@ const ProfilePage = () => {
                                                     VEG
                                                 </div>
                                             </div>
-                                            <div>
-                                                <h3 className="font-bold text-lg text-gray-800">PK Biryani House</h3>
-                                                <p className="text-gray-600 text-sm">JSS Boys Hostel, Near Petrol Pump, Srinivaspura</p>
+                                            <div className="min-w-0 flex-1">
+                                                <h3 className="font-bold text-lg text-gray-800 truncate">PK Biryani House</h3>
+                                                <p className="text-gray-600 text-sm truncate">JSS Boys Hostel, Near Petrol Pump, Srinivaspura</p>
                                                 <p className="text-gray-500 text-xs">ORDER #219741748995401 | Sat, Oct 18, 2025, 02:22 PM</p>
                                                 <button className="text-orange-500 text-sm font-medium mt-1">VIEW DETAILS</button>
                                             </div>
                                         </div>
-                                        <div className="text-right">
+                                        <div className="text-left sm:text-right">
                                             <div className="flex items-center text-green-600 text-sm font-medium mb-1">
                                                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                                Delivered on Sat, Oct 18, 2025, 03:00 PM
+                                                <span className="text-xs sm:text-sm">Delivered on Sat, Oct 18, 2025, 03:00 PM</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="border-t pt-4">
-                                        <div className="flex justify-between items-center mb-4">
-                                            <p className="text-gray-800">Veg Dum Biryani x 1</p>
+                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                            <p className="text-gray-800 mb-2 sm:mb-0">Veg Dum Biryani x 1</p>
                                             <p className="font-bold text-gray-800">Total Paid: ₹ 434</p>
                                         </div>
-                                        <div className="flex space-x-3">
-                                            <button className="bg-orange-500 text-white px-6 py-2 rounded font-medium hover:bg-orange-600">
+                                        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                                            <button className="bg-orange-500 text-white px-6 py-2 rounded font-medium hover:bg-orange-600 transition-colors">
                                                 REORDER
                                             </button>
-                                            <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded font-medium hover:bg-orange-50">
+                                            <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded font-medium hover:bg-orange-50 transition-colors">
                                                 HELP
                                             </button>
                                         </div>

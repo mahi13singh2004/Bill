@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { orderImages } from '../assets/images'
 
 const CreateBillPage = () => {
     const navigate = useNavigate()
@@ -35,7 +36,7 @@ const CreateBillPage = () => {
             })}, ${formData.time}`,
             status: 'Bill Created',
             orderId: `#BILL${Date.now().toString().slice(-6)}`,
-            image: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/e0839ff574213e6f35b3899ebf1fc597',
+            image: orderImages.chineseWok,
             hasVegSymbol: true
         }
 
@@ -49,30 +50,33 @@ const CreateBillPage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
-            <div className="px-4 py-8">
+            {/* Profile Header - Responsive */}
+            <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex items-center justify-between text-white mb-8">
-                        <div>
-                            <h1 className="text-4xl font-bold mb-2">Mahi Singh</h1>
-                            <p className="text-blue-100 text-lg">8085533790</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-white mb-6 sm:mb-8">
+                        <div className="mb-4 sm:mb-0">
+                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">Mahi Singh</h1>
+                            <p className="text-blue-100 text-base sm:text-lg">8085533790</p>
                         </div>
-                        <button className="border border-white text-white px-6 py-2 rounded hover:bg-white hover:text-blue-600 transition-colors">
+                        <button className="border border-white text-white px-4 sm:px-6 py-2 rounded hover:bg-white hover:text-blue-600 transition-colors text-sm sm:text-base">
                             EDIT PROFILE
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div className="px-4 pb-8">
+            {/* Main Content - Responsive */}
+            <div className="px-4 sm:px-6 lg:px-8 pb-8">
                 <div className="max-w-4xl mx-auto">
-                    <div className="bg-white rounded-lg shadow-lg p-8">
-                        <div className="mb-8">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Bill</h2>
-                            <p className="text-gray-600">Generate a custom veg food bill for hostel records</p>
+                    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 lg:p-8">
+                        <div className="mb-6 sm:mb-8">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Create Bill</h2>
+                            <p className="text-gray-600 text-sm sm:text-base">Generate a custom veg food bill for hostel records</p>
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Restaurant Name and Amount - Responsive Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 <div>
                                     <label htmlFor="restaurantName" className="block text-sm font-semibold text-gray-700 mb-3">
                                         Restaurant Name
@@ -84,7 +88,7 @@ const CreateBillPage = () => {
                                         value={formData.restaurantName}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
+                                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-base sm:text-lg"
                                         placeholder="Enter restaurant name"
                                     />
                                 </div>
@@ -101,12 +105,13 @@ const CreateBillPage = () => {
                                         onChange={handleInputChange}
                                         required
                                         min="1"
-                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
+                                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-base sm:text-lg"
                                         placeholder="Enter total amount"
                                     />
                                 </div>
                             </div>
 
+                            {/* Items Ordered */}
                             <div>
                                 <label htmlFor="items" className="block text-sm font-semibold text-gray-700 mb-3">
                                     Items Ordered
@@ -118,12 +123,13 @@ const CreateBillPage = () => {
                                     onChange={handleInputChange}
                                     required
                                     rows={4}
-                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-base sm:text-lg resize-none"
                                     placeholder="e.g., Veg Biryani x 1, Paneer Butter Masala x 1, Roti x 3"
                                 />
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Date and Time - Responsive Grid with Larger Inputs */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                 <div>
                                     <label htmlFor="date" className="block text-sm font-semibold text-gray-700 mb-3">
                                         Date
@@ -135,7 +141,7 @@ const CreateBillPage = () => {
                                         value={formData.date}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-6 py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-xl"
+                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg sm:text-xl"
                                     />
                                 </div>
                                 <div>
@@ -149,32 +155,36 @@ const CreateBillPage = () => {
                                         value={formData.time}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-6 py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-xl"
+                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg sm:text-xl"
                                     />
                                 </div>
                             </div>
 
-                            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                                <div className="flex items-center space-x-3">
-                                    <div className="bg-green-600 text-white px-3 py-1 rounded text-sm font-bold flex items-center">
+                            {/* VEG Indicator - Responsive */}
+                            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4 sm:p-6">
+                                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                    <div className="bg-green-600 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm font-bold flex items-center w-fit">
                                         <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                                         VEG ONLY
                                     </div>
-                                    <span className="text-green-700 text-lg font-medium">This bill is for vegetarian food only - Perfect for hostel records!</span>
+                                    <span className="text-green-700 text-sm sm:text-lg font-medium">
+                                        This bill is for vegetarian food only - Perfect for hostel records!
+                                    </span>
                                 </div>
                             </div>
 
-                            <div className="flex space-x-4 pt-6">
+                            {/* Submit Buttons - Responsive */}
+                            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-4 sm:pt-6">
                                 <button
                                     type="submit"
-                                    className="flex-1 bg-orange-500 text-white py-4 px-8 rounded-lg font-bold text-lg hover:bg-orange-600 transition-colors shadow-lg"
+                                    className="w-full sm:flex-1 bg-orange-500 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-bold text-base sm:text-lg hover:bg-orange-600 transition-colors shadow-lg"
                                 >
                                     CREATE BILL
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => navigate('/profile')}
-                                    className="flex-1 border-2 border-gray-300 text-gray-700 py-4 px-8 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors"
+                                    className="w-full sm:flex-1 border-2 border-gray-300 text-gray-700 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-50 transition-colors"
                                 >
                                     CANCEL
                                 </button>
