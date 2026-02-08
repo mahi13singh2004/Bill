@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* Custom scrollbar styles */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Swiggy-like animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .mobile-padding {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Hide some navbar items on mobile */
+    .navbar-item-hide-mobile {
+        display: none;
+    }
+
+    /* Stack restaurant cards on mobile */
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Profile sidebar becomes full width on mobile */
+    .profile-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .profile-content {
+        flex-direction: column;
+    }
+}
+
+/* Veg indicator with exact Swiggy styling */
+.veg-indicator {
+    background: linear-gradient(135deg, #0f766e, #059669);
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Button hover effects matching Swiggy */
+.btn-primary {
+    background: linear-gradient(135deg, #ea580c, #dc2626);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.4);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Swiggy orange color scheme */
+.swiggy-orange {
+    background: #fc8019;
+}
+
+.swiggy-orange-hover:hover {
+    background: #e73c00;
+}
+
+/* Blue gradient background like Swiggy profile */
+.swiggy-blue-gradient {
+    background: linear-gradient(135deg, #4f46e5, #3b82f6, #06b6d4);
+}
+
+/* Food category image hover effect */
+.food-category:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+/* Restaurant card image overlay effect */
+.restaurant-image-overlay {
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+}
